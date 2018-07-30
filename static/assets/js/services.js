@@ -114,10 +114,7 @@ function Services () {
       },
 
       reset: element => {
-
         element.className = "hidden";
-        element.innerHTML = "";
-
       }
 
     }

@@ -86,7 +86,7 @@ function app () {
       obj.date = new Date().getTime();
 
       oCollection.add(obj)
-      .then(function(docRef) {
+      .then( docRef => {
 
         let text = '<strong>Sucesso!</strong> Recebemos seu pedido, em breve receberá o material.';
         oServices.alert.show('info', text, eAlert);
@@ -96,11 +96,17 @@ function app () {
         eBtn.textContent = 'Solicitar material';
 
       })
-      .catch(function(error) {
+      .catch( error =>  {
+
         let element = document.querySelector('#alert');
         let text = '<strong>Ahh!</strong> Ocorreu um problema no registro do pedido. Tente novamente.';
-        oServices.alert.show('danger', text, eAlert, 5000);
+
+        oServices.alert.show('danger', text, eAlert);
+        eBtn.removeAttribute('disabled');
+        eBtn.textContent = 'Solicitar material';
+
         console.error('Error adding document:', error);
+
       });
 
     }
