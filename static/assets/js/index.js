@@ -4,6 +4,7 @@ $(document).ready( function() {
 });
 
 let oApp = new app();
+let oServices = new Services();
 
 oApp.firebase.init({
   apiKey: "AIzaSyA4j9ZAfoXdozRG51c_p3EMJYZvN-vkfDw",
@@ -11,11 +12,18 @@ oApp.firebase.init({
   projectId: "pave-digital"
 });
 
-$("#Form").iForm({
-  Submit: function(Json){
-    oApp.firebase.post('leads', Json);
-  },
-  Error: function (Input,sMsg){        
-    console.error(sMsg);
+$("#Form").submit( event => {
+  event.preventDefault();
+
+  let aData = new Array();
+
+  $("#Form input").each( function (index) { aData.push( $(this).val() ) });
+
+  let oData = {
+    name: aData[0],
+    email: aData[1]
   }
+
+  oApp.firebase.post('leads', oData);
+
 });

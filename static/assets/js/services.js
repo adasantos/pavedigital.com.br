@@ -1,7 +1,7 @@
 'use stric';
 function Services () {
 
-  return  {
+  let self = {
 
     dateTimeLocal: nMilliseconds => {
 
@@ -11,7 +11,7 @@ function Services () {
 
         let oDate = new Date(nMilliseconds);
 
-        let date = oDate.toLocaleDateString();
+        let date = oDate.toLocaleDateString('pt-BR');
             date = date.split('/')[2] + "-" + date.split('/')[1] + "-" + date.split('/')[0];
 
         let time = oDate.toLocaleTimeString();
@@ -89,7 +89,35 @@ function Services () {
           link.setAttribute('download', filename);
           link.click();
 
+    },
+
+    alert: {
+
+      show: (sType, sMsg, element, nMilliseconds) => {
+
+        let sClass = 'alert alert-' + sType;
+
+        element.className = sClass;
+        element.innerHTML = sMsg;
+
+        if (nMilliseconds) {
+          setTimeout(() => {
+            self.alert.reset(element);
+          }, nMilliseconds);
+        }
+
+      },
+
+      reset: element => {
+
+        element.className = "hidden";
+        element.innerHTML = "";
+
+      }
+
     }
   }
+
+  return self;
 
 }

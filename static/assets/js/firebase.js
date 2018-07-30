@@ -77,15 +77,23 @@ function app () {
     post: (collection, obj) => {
 
       let oCollection = oFirestore.collection(collection);
+      let eAlert = document.querySelector('#alert');
 
       obj.ip = sIpAddress;
       obj.date = new Date().getTime();
 
       oCollection.add(obj)
       .then(function(docRef) {
+
+        let text = '<strong>Sucesso!</strong> Recebemos seu pedido, em breve receberá o material.';
+        oServices.alert.show('success', text, eAlert, 5000);
+
         console.log("Document written with ID: ", docRef.id);
       })
       .catch(function(error) {
+        let element = document.querySelector('#alert');
+        let text = '<strong>Ahh!</strong> Ocorreu um problema no registro do pedido. Tente novamente.';
+        oServices.alert.show('danger', text, eAlert, 5000);
         console.error("Error adding document: ", error);
       });
 

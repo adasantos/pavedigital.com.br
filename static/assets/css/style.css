@@ -26,6 +26,10 @@ body {
 	display: flex;
 }
 
+.hidden {
+	display: none;
+}
+
 @media (max-width: 600px) {
 	.content .col-md-4 {
 		order: 2

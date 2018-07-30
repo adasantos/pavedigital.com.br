@@ -28,16 +28,17 @@
 
                 <div class="card text-center">
                     <div class="card-body">
+                        <div id="alert" class="hidden" role="alert"></div>
                         <h3 class="card-title">Quer vender mais?</h3>
                         <p class="card-text">Basta preencher o formulário abaixo para receber o material em seu email!</p>
 
                         <form id="Form" class="form">
 
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" id="nome" placeholder="Digite seu nome">
+                                <input type="text" class="form-control" name="name" id="nome" placeholder="Digite seu nome" required="required">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu e-mail corporativo">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu e-mail corporativo" required="required">
                             </div>
 
                             <button class="btn btn-primary btn-lg">Solicitar material</button>
