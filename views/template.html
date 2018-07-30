@@ -9,8 +9,8 @@
 
     <title>Pavê Digital</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../static/assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,14 +31,17 @@
                         <h3 class="card-title">Quer vender mais?</h3>
                         <p class="card-text">Basta preencher o formulário abaixo para receber o material em seu email!</p>
 
-                        <form class="form">
+                        <form id="Form" class="form">
+
                             <div class="form-group">
-                                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                                <input type="text" class="form-control" name="name" id="nome" placeholder="Digite seu nome">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email" placeholder="Digite seu e-mail corporativo">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu e-mail corporativo">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">Solicitar material</button>
+
+                            <button class="btn btn-primary btn-lg">Solicitar material</button>
+
                         </form>
 
                     </div>
@@ -110,8 +113,21 @@
         </div>
     </footer>
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/assets/plugins/jquery/jquery.slim.min.js"></script>
+    <script src="../static/assets/plugins/jquery/jquery.min.js"></script>
+    <script src="../static/assets/plugins/jquery/jquery.form.min.js"></script>
+
+    <script src="../static/assets/plugins/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="../static/assets/plugins/firebase/firebase-app.js"></script>
+    <script src="../static/assets/plugins/firebase/firebase-firestore.js"></script>
+
+    <!-- Services -->
+    <script src="../static/assets/js/firebase.js"></script>
+    <script src="../static/assets/js/services.js"></script>
+
+    <script src="../static/assets/js/index.js"></script>
 
 </body>
 
