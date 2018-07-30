@@ -78,6 +78,9 @@ function app () {
 
       let oCollection = oFirestore.collection(collection);
       let eAlert = document.querySelector('#alert');
+      let eBtn = document.querySelector('#btn-request');
+          eBtn.setAttribute('disabled', 'disabled');
+          eBtn.textContent = 'Solicitando ...';
 
       obj.ip = sIpAddress;
       obj.date = new Date().getTime();
@@ -86,20 +89,19 @@ function app () {
       .then(function(docRef) {
 
         let text = '<strong>Sucesso!</strong> Recebemos seu pedido, em breve receberá o material.';
-        oServices.alert.show('success', text, eAlert, 5000);
+        oServices.alert.show('info', text, eAlert);
 
-        console.log("Document written with ID: ", docRef.id);
+        document.querySelector('form').reset();
+        eBtn.removeAttribute('disabled');
+        eBtn.textContent = 'Solicitar material';
+
       })
       .catch(function(error) {
         let element = document.querySelector('#alert');
         let text = '<strong>Ahh!</strong> Ocorreu um problema no registro do pedido. Tente novamente.';
         oServices.alert.show('danger', text, eAlert, 5000);
-        console.error("Error adding document: ", error);
+        console.error('Error adding document:', error);
       });
-
-      document.querySelector('form').reset();
-
-      self.firebase.get(collection);
 
     }
 

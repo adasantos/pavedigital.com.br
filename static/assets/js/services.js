@@ -96,9 +96,14 @@ function Services () {
       show: (sType, sMsg, element, nMilliseconds) => {
 
         let sClass = 'alert alert-' + sType;
+        let eClose = element.querySelector('.close');
+        let eText = element.querySelector('.text');
+            eText.innerHTML = sMsg;
 
         element.className = sClass;
-        element.innerHTML = sMsg;
+        element.innerHTML = "";
+        element.appendChild(eClose);
+        element.appendChild(eText);
 
         if (nMilliseconds) {
           setTimeout(() => {

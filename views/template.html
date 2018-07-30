@@ -28,7 +28,12 @@
 
                 <div class="card text-center">
                     <div class="card-body">
-                        <div id="alert" class="hidden" role="alert"></div>
+                        <div id="alert" class="hidden" role="alert">
+                            <button type="button" class="close">
+                                <span>&times;</span>
+                            </button>
+                            <span class="text"></span>
+                        </div>
                         <h3 class="card-title">Quer vender mais?</h3>
                         <p class="card-text">Basta preencher o formulário abaixo para receber o material em seu email!</p>
 
@@ -41,7 +46,7 @@
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu e-mail corporativo" required="required">
                             </div>
 
-                            <button class="btn btn-primary btn-lg">Solicitar material</button>
+                            <button id="btn-request" class="btn btn-primary btn-lg">Solicitar material</button>
 
                         </form>
 

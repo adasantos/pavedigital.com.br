@@ -27,3 +27,8 @@ $("#Form").submit( event => {
   oApp.firebase.post('leads', oData);
 
 });
+
+$('#alert .close').on('click', () => {
+  let eAlert = document.querySelector('#alert');
+  oServices.alert.reset(eAlert);
+})
