@@ -30,12 +30,6 @@ body {
 	.navbar-brand {
 		font-size: 30px;
 	}
-
-}
-@media (max-width: 992px) {
-	.position-not-lg-relative {
-		position: relative;
-	}
 }
 
 @media (min-width: 768px) {
