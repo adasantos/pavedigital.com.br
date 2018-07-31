@@ -30,8 +30,26 @@ body {
 	display: none;
 }
 
+.footer-sociais {
+	text-align: center;
+}
+
+.footer-sociais a {
+	cursor: pointer;
+}
+
+.footer-sociais img {
+	height: 40px;
+	margin: 10px 15px;
+}
+
 @media (max-width: 600px) {
 	.content .col-md-4 {
 		order: 2
+	}
+
+	.footer-sociais img {
+		height: 30px;
+		margin: 10px;
 	}
 }
