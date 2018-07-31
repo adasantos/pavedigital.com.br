@@ -31,3 +31,10 @@ body {
 		order: 2
 	}
 }
+
+@media (min-width: 600px) {
+	#material {
+		position: absolute;
+		top: -90px;
+	}
+}

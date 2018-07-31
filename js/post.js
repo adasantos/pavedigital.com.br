@@ -1,25 +1,51 @@
-function save(userId) {
+function subscribe(userId) {
 	let data = {
 		ip: window.ip,
 		timestamp: moment().tz("America/Sao_Paulo").format("YYYY-MM-DD HH:mm:ss")
 	}
 	if (userId) data.userId = userId
 	else {
-		data.name = $("#name").val()
-		data.email = $("#email").val()
+		data.name = document.querySelector("#name").value
+		data.email = document.querySelector("#email").value
 	}
-	
+
 	firebase.database().ref("leads").push(data)
-	$("form").addClass("d-none")
-	$("#alert").removeClass("d-none")
+
+	if (!userId) {
+		document.querySelector("form").classList.add("d-none")
+		document.querySelector("#alert").classList.remove("d-none")
+	}
 }
 
-$("form").submit(function(e) {
-	e.preventDefault()
-	save()
+function getIpAddress() {
+	let xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://jsonip.com");
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				window.ip = JSON.parse(xhr.responseText).ip
+				let url = window.location.href.split("?")
+				if (url.length == 2) subscribe(url[1])
+			} else {
+				getIpAddress()
+			}
+		}
+	}
+	xhr.send()
+}
+
+document.querySelector("form").addEventListener("submit", function (event) {
+	event.preventDefault()
+	subscribe()
 })
 
-$(document).ready(function() {
+document.querySelector("a[href='#material']").addEventListener("click", function() {
+	setTimeout(function() {
+		document.getElementById("name").focus()
+	}, 500)
+})
+
+document.addEventListener("DOMContentLoaded", function (event) {
 	firebase.initializeApp({
 		apiKey: "AIzaSyA4j9ZAfoXdozRG51c_p3EMJYZvN-vkfDw",
 		authDomain: "pave-digital.firebaseapp.com",
@@ -29,9 +55,5 @@ $(document).ready(function() {
 		messagingSenderId: "611260857595"
 	})
 
-	$.get("https://jsonip.com", (data) => {
-		window.ip = data.ip
-		let url = window.location.href.split("?")
-		if (url.length == 2) save(url[1])
-	})
+	getIpAddress()
 })
