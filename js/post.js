@@ -3,15 +3,13 @@ function subscribe(userId) {
 		ip: window.ip,
 		timestamp: moment().tz("America/Sao_Paulo").format("YYYY-MM-DD HH:mm:ss")
 	}
-	if (userId) data.userId = userId
-	else {
+	if (userId) {
+		data.userId = userId
+		firebase.database().ref("tracking").push(data)
+	} else {
 		data.name = document.querySelector("#name").value
 		data.email = document.querySelector("#email").value
-	}
-
-	firebase.database().ref("leads").push(data)
-
-	if (!userId) {
+		firebase.database().ref("leads").push(data)
 		document.querySelector("form").classList.add("d-none")
 		document.querySelector("#alert").classList.remove("d-none")
 	}
