@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,800');
+
 body {
 	padding-top: 90px;
+	font-family: 'Poppins', sans-serif;
 }
 
 .navbar-brand {
-	font-size: 2.5rem;
+	font-size: 40px;
+	font-weight: 800;
 }
 
 .bg-light-blue {
@@ -16,4 +20,14 @@ body {
 
 .bg-dark-blue {
 	background-color: #293d69 !important;
+}
+
+.content {
+	display: flex;
+}
+
+@media (max-width: 600px) {
+	.content .col-md-4 {
+		order: 2
+	}
 }
