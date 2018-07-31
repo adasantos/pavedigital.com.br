@@ -26,9 +26,36 @@ body {
 	display: flex;
 }
 
-@media (max-width: 600px) {
+p {
+	text-align: justify;
+}
+
+.not-justify {
+	text-align: start !important;
+}
+
+.footer-sociais {
+	text-align: center
+}
+
+.footer-sociais img {
+	height: 40px;
+	margin: 10px;
+}
+
+.post-content {
+	display: flex;
+	align-items: center;
+	margin: 30px 0 70px 0; /*Remover o valor de margin-bottom com a inclusão de mais post. Deixando 30px 0*/
+}
+
+@media (max-width: 768px) {
 	.content .col-md-4 {
 		order: 2
+	}
+
+	.footer-sociais img {
+		height: 30px;
 	}
 }
 
