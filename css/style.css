@@ -22,44 +22,21 @@ body {
 	background-color: #293d69 !important;
 }
 
-.content {
-	display: flex;
-}
-
-p {
-	text-align: justify;
-}
-
-.not-justify {
-	text-align: start !important;
-}
-
-.footer-sociais {
-	text-align: center
-}
-
-.footer-sociais img {
-	height: 40px;
-	margin: 10px;
-}
-
-.post-content {
-	display: flex;
-	align-items: center;
-	margin: 30px 0 70px 0; /*Remover o valor de margin-bottom com a inclusão de mais post. Deixando 30px 0*/
-}
-
 @media (max-width: 768px) {
-	.content .col-md-4 {
-		order: 2
+	body {
+		padding-top: 70px;
+	}
+	
+	.navbar-brand {
+		font-size: 30px;
 	}
 
-	.footer-sociais img {
-		height: 30px;
+	.position-not-lg-relative {
+		position: relative;
 	}
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
 	#material {
 		position: absolute;
 		top: -90px;
