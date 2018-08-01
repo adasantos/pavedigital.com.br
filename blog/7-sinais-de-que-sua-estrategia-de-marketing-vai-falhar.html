@@ -9,6 +9,7 @@
 
     <title>Pavê Digital</title>
 
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" ntegrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
 </head>
@@ -113,16 +114,13 @@
                         <p class="card-text">Basta preencher o formulário abaixo para receber o material em seu email!</p>
 
                         <form class="form">
-
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
+                                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" pattern="^[a-zA-ZáÁéÉ][a-zA-ZáÁéÉ]+([ ][a-zA-ZáÁéÉ]+)*([ ][a-zA-ZáÁéÉ][a-zA-ZáÁéÉ]+)+([ ][a-zA-ZáÁéÉ]+)*$" title="Nome e pelo menos um sobrenome, somente letras" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail corporativo" required>
+                                <input type="email" class="form-control" id="email" placeholder="Digite seu melhor e-mail" pattern="^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" title="exemplo@email.com" required>
                             </div>
-
                             <button id="btn-request" class="btn btn-primary btn-lg">Solicitar material</button>
-
                         </form>
 
                         <div class="alert alert-primary m-0 d-none" role="alert" id="alert">

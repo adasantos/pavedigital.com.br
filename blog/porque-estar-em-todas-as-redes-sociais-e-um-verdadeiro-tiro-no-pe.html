@@ -9,6 +9,7 @@
 
     <title>Pavê Digital</title>
 
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" ntegrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
 </head>
@@ -59,7 +60,7 @@
 
                 <h4>Como o Enzo e a Valentina compram?</h4>
                 <img class="img-fluid rounded mb-3" src="../img/sapo_900x300.jpg">
-                <p>Você sabe qual o caminho que o seu cliente percorre para chegar até sua marca? Já ouviu falar em ZMOT? Então clica <u><a href="https://www.youtube.com/watch?v=g40rrWBx2ok">aqui</a></u> e assiste esse vídeo. é do Google, então vai sem medo.</p>
+                <p>Você sabe qual o caminho que o seu cliente percorre para chegar até sua marca? Já ouviu falar em ZMOT? Então assiste esse <a href="https://www.youtube.com/watch?v=g40rrWBx2ok" target="_blank">vídeo</a> do Google, vai sem medo.</p>
                 <p>O <em>Zero Moment Of Truth</em> ou Momento Zero da Verdade, está localizado entre o momento em que seu cliente recebe o estímulo de compra, ou descobre que precisa de um produto para solucionar um problema e o momento em que ele parte para a compra. é nessa hora que ele vai procurar informações para se decidir se compra seu produto ou não, e você não quer ficar fora deste momento. Não mesmo.</p>
                 <p>é por isso que você precisa <strong>identificar onde seu cliente vai buscar mais informações</strong>. Claro que a primeira resposta óbvia seria o Google ou outro buscador, mas manter um perfil bem atualizado e com conteúdo interessante na rede social que ele mais se identifica pode fazer toda a diferença neste momento.</p>
                 <p>Lembrou da persona agora? Pensa nela de novo. As respostas estão ali. ;)</p>
@@ -86,12 +87,12 @@
 
                         <form class="form">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
+                                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" pattern="^[a-zA-ZáÁéÉ][a-zA-ZáÁéÉ]+([ ][a-zA-ZáÁéÉ]+)*([ ][a-zA-ZáÁéÉ][a-zA-ZáÁéÉ]+)+([ ][a-zA-ZáÁéÉ]+)*$" title="Nome e pelo menos um sobrenome, somente letras" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail corporativo" required>
+                                <input type="email" class="form-control" id="email" placeholder="Digite seu melhor e-mail" pattern="^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" title="exemplo@email.com" required>
                             </div>
-                            <button class="btn btn-primary btn-lg">Solicitar material</button>
+                            <button id="btn-request" class="btn btn-primary btn-lg">Solicitar material</button>
                         </form>
 
                         <div class="alert alert-primary m-0 d-none" role="alert" id="alert">

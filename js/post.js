@@ -37,11 +37,13 @@ document.querySelector("form").addEventListener("submit", function (event) {
 	subscribe()
 })
 
-document.querySelector("a[href='#material']").addEventListener("click", function() {
-	setTimeout(function() {
-		document.getElementById("name").focus()
-	}, 500)
-})
+if (document.querySelector("a[href='#material']")) {
+	document.querySelector("a[href='#material']").addEventListener("click", function() {
+		setTimeout(function() {
+			document.getElementById("name").focus()
+		}, 500)
+	})
+}
 
 document.addEventListener("DOMContentLoaded", function (event) {
 	firebase.initializeApp({
