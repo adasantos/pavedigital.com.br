@@ -30,6 +30,10 @@ body {
 	.navbar-brand {
 		font-size: 30px;
 	}
+
+	.form-home .row div:not(:last-child) {
+		margin-bottom: 15px;
+	}
 }
 
 @media (min-width: 768px) {
