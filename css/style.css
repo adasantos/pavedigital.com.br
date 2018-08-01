@@ -22,6 +22,24 @@ body {
 	background-color: #293d69 !important;
 }
 
+.hide {
+	opacity: 0;
+	transition: all 0.5s;
+}
+
+#arrow-up {
+	float: right;
+	transition: all 0.5s;
+}
+#arrow-up img {
+	display: scroll;
+	position: fixed;
+	bottom: 15px;
+	right:15px;
+	height: 30px;
+	cursor: pointer;
+}
+
 @media (max-width: 768px) {
 	body {
 		padding-top: 70px;
@@ -31,8 +49,12 @@ body {
 		font-size: 30px;
 	}
 
-	.form-home .row div:not(:last-child) {
+	.form-home .row div{
 		margin-bottom: 15px;
+	}
+
+	#btn-request {
+		margin: 0 auto;
 	}
 }
 

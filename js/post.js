@@ -56,4 +56,38 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	})
 
 	getIpAddress()
+
 })
+
+/* Em testes
+if ($('#arrow-up')) {
+	window.addEventListener('scroll', scrollPage);
+	$('#arrow-up > img').addEventListener('click', scrollToTop);
+}
+
+function scrollPage() {
+	let content = $('html').scrollHeight - 765;
+
+	if (window.scrollY > 200) {
+		$('#arrow-up').classList.remove('hide');
+
+		if (window.scrollY > content) $('#arrow-up > img').style.bottom = `${(window.scrollY - content + 15)}px`;
+		else $('#arrow-up > img').style.bottom = '15px';
+
+	}
+	else {
+		$('#arrow-up').classList.add('hide');
+	}
+}
+
+function scrollToTop() {
+	let position = window.scrollY;
+	let i = setInterval( () => {
+		window.scrollTo(0, position);
+		position -= 30;
+		if (position < 30) {
+			window.scrollTo(0, 0);
+			clearInterval(i);
+		}
+	}, 1)
+}*/
