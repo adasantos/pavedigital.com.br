@@ -8,7 +8,6 @@
 <body>
     <div id="message">carregando...</div>
     <script>
-        const message = document.querySelector("#message")
         document.addEventListener("DOMContentLoaded", function (event) {
             firebase.initializeApp({
                 apiKey: "AIzaSyA4j9ZAfoXdozRG51c_p3EMJYZvN-vkfDw",
@@ -18,14 +17,12 @@
                 storageBucket: "pave-digital.appspot.com",
                 messagingSenderId: "611260857595"
             })
-
-            firebase.database().ref('leads').once('value')
-                .then(function(snapshot) {
-                    message.innerHTML = Object.values(snapshot.val()).length
+            firebase.database().ref().once('value')
+                .then((snapshot) => {
+                    let data = snapshot.val()
+                    message.innerHTML = `views: ${Object.values(data.tracking).length} <br>leads: ${Object.values(data.leads).length}`
                 })
-                .catch(function(e) {
-                    message.innerHTML = "deu erro"
-                })
+                .catch((e) => console.log(e))
         })
     </script>
 </body>

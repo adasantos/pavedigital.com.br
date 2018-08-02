@@ -1,20 +1,3 @@
-function subscribe(url) {
-	let data = {
-		ip: window.ip,
-		timestamp: moment().tz("America/Sao_Paulo").format("YYYY-MM-DD HH:mm:ss")
-	}
-	if (url) {
-		data.url = url
-		firebase.database().ref("tracking").push(data)
-	} else {
-		data.name = document.querySelector("#name").value
-		data.email = document.querySelector("#email").value
-		firebase.database().ref("leads").push(data)
-		document.querySelector("form").classList.add("d-none")
-		document.querySelector("#alert").classList.remove("d-none")
-	}
-}
-
 function getIpAddress() {
 	let xhr = new XMLHttpRequest();
 	xhr.open("GET", "https://jsonip.com");
@@ -22,7 +5,11 @@ function getIpAddress() {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				window.ip = JSON.parse(xhr.responseText).ip
-				subscribe(window.location.href)
+				firebase.database().ref("tracking").push({
+					ip: window.ip,
+					timestamp: moment().tz("America/Sao_Paulo").format("YYYY-MM-DD HH:mm:ss"),
+					url: window.location.href
+				})
 			} else {
 				getIpAddress()
 			}
@@ -31,16 +18,35 @@ function getIpAddress() {
 	xhr.send()
 }
 
-document.querySelector("form").addEventListener("submit", function (event) {
+function subscribe(name, email) {
+	firebase.database().ref("leads").push({
+		ip: window.ip,
+		timestamp: moment().tz("America/Sao_Paulo").format("YYYY-MM-DD HH:mm:ss"),
+		name: name,
+		email: email
+	})
+}
+
+if (document.querySelector("#formModal")) {
+	document.querySelector("#formModal").addEventListener("submit", function(event) {
+		event.preventDefault()
+		subscribe(document.querySelector("#nameModal").value, document.querySelector("#emailModal").value)
+		$("#modal").modal("hide")
+	})
+}
+
+document.querySelector("#form").addEventListener("submit", function(event) {
 	event.preventDefault()
-	subscribe()
+	subscribe(document.querySelector("#name").value, document.querySelector("#email").value)
+	document.querySelector("#form").classList.add("d-none")
+	document.querySelector("#alert").classList.remove("d-none")
 })
 
 if (document.querySelector("a[href='#formulario']")) {
 	document.querySelector("a[href='#formulario']").addEventListener("click", function() {
 		setTimeout(function() {
 			document.getElementById("name").focus()
-		}, 500)
+		}, 100)
 	})
 }
 
