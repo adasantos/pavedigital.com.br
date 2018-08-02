@@ -22,9 +22,49 @@
 
       gtag('config', 'UA-123041837-1');
     </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
-<body>
+  <body>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Quer vender mais?</h4>
+        </div>
+        <div class="modal-body">
+             <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">Fica vai ter Pavê</h4>
+                        <p class="card-text">Basta preencher o formulário abaixo para receber o material em seu email!</p>
+
+                        <form class="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Digite seu nome" pattern="^[a-zA-ZáÁãÃéÉêÊíÍõÕôÔúÚçÇ][a-zA-ZáÁãÃéÉêÊíÍõÕôÔúÚçÇ]+([ ][a-zA-ZáÁãÃéÉêÊíÍõÕôÔúÚçÇ]+)*([ ][a-zA-ZáÁãÃéÉêÊíÍõÕôÔúÚçÇ][a-zA-ZáÁãÃéÉêÊíÍõÕôÔúÚçÇ]+)+([ ][a-zA-ZáÁãÃéÉêÊíÍõÕôÔúÚçÇ]+)*$" title="Nome e pelo menos um sobrenome, somente letras" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Digite seu melhor e-mail" pattern="^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" title="exemplo@email.com" required>
+                            </div>
+                            <button id="btn-request" class="btn btn-primary btn-lg">Solicitar material</button>
+                        </form>
+
+                        <div class="alert alert-primary m-0 d-none" role="alert" id="alert">
+                            <strong>Obrigado!</strong> Vamos encaminhar o material para o seu e-mail.
+                        </div>
+                    </div>
+                </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 
     <nav class="bg-dark-blue border-bottom shadow-sm fixed-top">
         <div class="container">
@@ -84,7 +124,7 @@
         </div>
 
         <hr>
-
+         
         <div class="card text-center mt-3 mb-3">
                 <div id="material"></div>
             <div class="card-body">
@@ -109,7 +149,8 @@
 
     </div>
 
-    <footer class="py-3 bg-blue">
+
+     <footer class="py-3 bg-blue">
         <div class="container text-center">
             <a href="https://www.facebook.com/Pave-Digital-488665974928356/" target="_blank" class="m-1">
                 <img src="img/facebook.png" alt="Facebook" title="Facebook">
@@ -125,6 +166,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/post.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
