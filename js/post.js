@@ -1,10 +1,10 @@
-function subscribe(userId) {
+function subscribe(url) {
 	let data = {
 		ip: window.ip,
 		timestamp: moment().tz("America/Sao_Paulo").format("YYYY-MM-DD HH:mm:ss")
 	}
-	if (userId) {
-		data.userId = userId
+	if (url) {
+		data.url = url
 		firebase.database().ref("tracking").push(data)
 	} else {
 		data.name = document.querySelector("#name").value
@@ -22,8 +22,7 @@ function getIpAddress() {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				window.ip = JSON.parse(xhr.responseText).ip
-				let url = window.location.href.split("?")
-				if (url.length == 2) subscribe(url[1])
+				subscribe(window.location.href)
 			} else {
 				getIpAddress()
 			}
@@ -37,8 +36,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
 	subscribe()
 })
 
-if (document.querySelector("a[href='#material']")) {
-	document.querySelector("a[href='#material']").addEventListener("click", function() {
+if (document.querySelector("a[href='#formulario']")) {
+	document.querySelector("a[href='#formulario']").addEventListener("click", function() {
 		setTimeout(function() {
 			document.getElementById("name").focus()
 		}, 500)
@@ -56,5 +55,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	})
 
 	getIpAddress()
-
 })
