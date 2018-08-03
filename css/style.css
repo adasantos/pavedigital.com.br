@@ -27,17 +27,8 @@ body {
 	transition: all 0.5s;
 }
 
-#arrow-up {
-	float: right;
-	transition: all 0.5s;
-}
-#arrow-up img {
-	display: scroll;
-	position: fixed;
-	bottom: 15px;
-	right:15px;
-	height: 30px;
-	cursor: pointer;
+.youtubr-video {
+	width: 100%;
 }
 
 @media (max-width: 768px) {
