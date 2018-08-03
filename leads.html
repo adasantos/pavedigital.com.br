@@ -9,20 +9,82 @@
     <div id="message">carregando...</div>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
-            firebase.initializeApp({
-                apiKey: "AIzaSyA4j9ZAfoXdozRG51c_p3EMJYZvN-vkfDw",
-                authDomain: "pave-digital.firebaseapp.com",
-                databaseURL: "https://pave-digital.firebaseio.com",
-                projectId: "pave-digital",
-                storageBucket: "pave-digital.appspot.com",
-                messagingSenderId: "611260857595"
-            })
-            firebase.database().ref().once('value')
-                .then((snapshot) => {
-                    let data = snapshot.val()
-                    message.innerHTML = `views: ${Object.values(data.tracking).length} <br>leads: ${Object.values(data.leads).length}`
-                })
-                .catch((e) => console.log(e))
+            // firebase.initializeApp({
+            //     apiKey: "AIzaSyA4j9ZAfoXdozRG51c_p3EMJYZvN-vkfDw",
+            //     authDomain: "pave-digital.firebaseapp.com",
+            //     databaseURL: "https://pave-digital.firebaseio.com",
+            //     projectId: "pave-digital",
+            //     storageBucket: "pave-digital.appspot.com",
+            //     messagingSenderId: "611260857595"
+            // })
+            // firebase.database().ref().once('value')
+            //     .then((snapshot) => {
+            //         let data = snapshot.val()
+            //         message.innerHTML = `views: ${Object.values(data.tracking).length} <br>leads: ${Object.values(data.leads).length}`
+            //     })
+            //     .catch((e) => console.log(e))
+
+            // alfagreen https://gostreaming.com.br/
+            // firebase.initializeApp({
+            //     apiKey: "AIzaSyArJR_L-sTGhth2ndXtXOAzSnrfy4OUpGI",
+            //     authDomain: "gostreaming-45343.firebaseapp.com",
+            //     databaseURL: "https://gostreaming-45343.firebaseio.com",
+            //     projectId: "gostreaming-45343",
+            //     storageBucket: "gostreaming-45343.appspot.com",
+            //     messagingSenderId: "954966966965"
+            // })
+            // firebase.database().ref('messages').once('value')
+            //     .then((snapshot) => {
+            //         let data = snapshot.val()
+            //         console.log(Object.values(data).length)
+            //         console.log(data)
+            //     })
+            //     .catch((e) => console.log(e))
+
+            // blackteam https://jornalpme.com.br/
+            // firebase.initializeApp({
+            //     apiKey: "AIzaSyDQy4_O7bKkNaq3prkpd-bz8EALeREk_Gw",
+            //     authDomain: "gama-jornal-pme.firebaseapp.com",
+            //     databaseURL: "https://gama-jornal-pme.firebaseio.com",
+            //     projectId: "gama-jornal-pme",
+            //     storageBucket: "gama-jornal-pme.appspot.com",
+            //     messagingSenderId: "961147787327"
+            // })
+            // firebase.database().ref('jinchuuriki/kurama/leads').once('value')
+            //     .then((snapshot) => {
+            //         let data = snapshot.val()
+            //         console.log(Object.values(data).length)
+            //         console.log(data)
+            //     })
+            //     .catch((e) => console.log(e))
+            
+            // gruporoxo http://www.brainee.com.br/
+            // firebase.initializeApp({
+            //     apiKey: "AIzaSyAiYlgWW5j03haswCQuW1qUiy7R5ytxl_w",
+            //     authDomain: "brainee-9ee17.firebaseapp.com",
+            //     databaseURL: "https://brainee-9ee17.firebaseio.com",
+            //     projectId: "brainee-9ee17",
+            //     storageBucket: "brainee-9ee17.appspot.com",
+            //     messagingSenderId: "516855679444"
+            // })
+            // firebase.database().ref().once('value')
+            //     .then((snapshot) => {
+            //         console.log(snapshot.val())
+            //     })
+            //     .catch((e) => console.log(e))
+
+            // grupomaneirinho https://www.jornalpme.com.br/
+            // firebase.initializeApp({
+            //     apiKey: "AIzaSyDTs-F66ssbxSwMETJ6U1-PjIqNGqZ2CGY",
+            //     authDomain: "blog-painel-da-gestao-form.firebaseapp.com",
+            //     databaseURL: "https://blog-painel-da-gestao-form.firebaseio.com",
+            //     projectId: "blog-painel-da-gestao-form",
+            //     storageBucket: "blog-painel-da-gestao-form.appspot.com",
+            //     messagingSenderId: "740249402520"
+            // })
+            // firebase.database().ref('Leads').once('value')
+            //     .then((snapshot) => console.log(snapshot.val()))
+            //     .catch((e) => console.log(e))
         })
     </script>
 </body>
