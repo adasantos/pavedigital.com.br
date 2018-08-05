@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+</head>
+<body>
+    <div id="message">carregando...</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            firebase.initializeApp({
+                apiKey: "AIzaSyA4j9ZAfoXdozRG51c_p3EMJYZvN-vkfDw",
+                authDomain: "pave-digital.firebaseapp.com",
+                databaseURL: "https://pave-digital.firebaseio.com",
+                projectId: "pave-digital",
+                storageBucket: "pave-digital.appspot.com",
+                messagingSenderId: "611260857595"
+            })
+            firebase.database().ref().once('value')
+                .then((snapshot) => {
+                    let data = snapshot.val()
+                    message.innerHTML = `views: ${Object.values(data.tracking).length} <br>leads: ${Object.values(data.leads).length}`
+                })
+                .catch((e) => console.log(e))
+        })
+    </script>
+</body>
+</html> 
